@@ -1,0 +1,1180 @@
+---
+# defaults file for cis-rhel8
+
+
+cis_name: Red Hat Enterprise Linux 8
+
+cis_version: STND-CPL-L4-1D-SE-BSS for Red Hat Enterprise Linux 8 Version 2.1
+
+cis_rules:
+  "1":
+      name: 2.1 Ensure Red Hat Subscription Manager connection is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "2.1":
+      name: 2.1 Ensure Red Hat Subscription Manager connection is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "2.2":
+      name: 2.2 Disable the rhnsd Daemon
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "2.3":
+      name: 2.3 Ensure package manager repositories are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "3.1":
+      name: 3.1 Ensure sudo is installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "3.2":
+      name: 3.2 Ensure sudo commands use pty 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "3.3":
+      name: 3.3 Ensure sudo log file exists 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "3.4":
+      name: 3.4 Ensure users must provide password for escalation
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: script
+  "3.5":
+      name: 3.5 Ensure re-authentication for privilege escalation is not disabled globally
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: script
+  "3.6":
+      name: 3.6 Ensure sudo authentication timeout is configured correctly
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "4.1":
+      name: 4.1 Ensure AIDE is installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "4.2":
+      name: 4.2 Ensure filesystem integrity is regularly checked
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "5.1":
+      name: 5.1 Ensure permissions on bootloader config are configured
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: script
+  "5.2":
+      name: 5.2 Ensure authentication is required when booting into rescue mode
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "6.1":
+      name: 6.1 Ensure address space layout randomization (ASLR) is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "6.2":
+      name: 6.2 Ensure core dump storage is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "6.3":
+      name: 6.3 Ensure core dump backtraces are disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.1":
+      name: 7.1 Ensure SELinux is installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.2":
+      name: 7.2 Ensure SELinux is not disabled in bootloader configuration
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: script
+  "7.3":
+      name: 7.3 Ensure SELinux policy is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.4":
+      name: 7.4 Ensure the SELinux state is enforcing
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.5":
+      name: 7.5 Ensure no unconfined services exist
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.6":
+      name: 7.6 Ensure SETroubleshoot is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.7":
+      name: 7.7 Ensure the MCS Translation Service (mcstrans) is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "7.8":
+      name: 7.8 Ensure the SELinux mode is not disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "8.1":
+      name: 8.1 Ensure message of the day is configured properly
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "8.2":
+      name: 8.2 Ensure local login warning banner is configured properly
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "8.3":
+      name: 8.3 Ensure remote login warning banner is configured properly 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "8.4":
+      name: 8.4 Ensure permissions on /etc/motd are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "8.5":
+      name: 8.5 Ensure permissions on /etc/issue are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "8.6":
+      name: 8.6 Ensure permissions on /etc/issue.net are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "8.7":
+      name: 8.7 Ensure GDM login banner is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "8.8":
+      name: 8.8 Ensure updates, patches, and additional security software are installed
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: playbook
+  "9.1":
+      name: 9.1 Ensure xinetd is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.2":
+      name: 9.2 Ensure time synchronization is in use
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.3":
+      name: 9.3 Ensure chrony is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.4":
+      name: 9.4 Ensure X Window System is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.5":
+      name: 9.5 Ensure rsync is not installed or the rsyncd service is masked
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.6":
+      name: 9.6 Ensure Avahi Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.7":
+      name: 9.7 Ensure net-snmp is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.8":
+      name: 9.8 Ensure HTTP Proxy Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.9":
+      name: 9.9 Ensure Samba is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.10":
+      name: 9.10 Ensure IMAP and POP3 server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.11":
+      name: 9.11 Ensure a web server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.12":
+      name: 9.12 Ensure FTP Server is not installed 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.13":
+      name: 9.13 Ensure DNS Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.14":
+      name: 9.14 Ensure nfs-utils is not installed or the nfs-server service is masked 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.15":
+      name: 9.15 Ensure rpcbind is not installed or the rpcbind services are masked 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.16":
+      name: 9.16 Ensure DHCP Server is not installed 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.17":
+      name: 9.17 Ensure CUPS is not installed 
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.18":
+      name: 9.18 Ensure NIS Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.19":
+      name: 9.19 Ensure mail transfer agent is configured for local-only mode
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.20":
+      name: 9.20 Ensure NIS Client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.21":
+      name: 9.21 Ensure telnet client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.22":
+      name: 9.22 Ensure LDAP client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.23":
+      name: 9.23 Ensure TFTP client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.24":
+      name: 9.24 Ensure telnet-server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.25":
+      name: 9.25 Ensure TFTP Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.26":
+      name: 9.26 Ensure VSFTP Server is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.27":
+      name: 9.27 Ensure rsh client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "9.28":
+      name: 9.28 Ensure talk client is not installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "10.1":
+      name: 10.1 Ensure IP forwarding is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "10.2":
+      name: 10.2 Ensure packet redirect sending is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.3":
+      name: 10.3 Ensure source routed packets are not accepted
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "10.4":
+      name: 10.4 Ensure ICMP redirects are not accepted
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "10.5":
+      name: 10.5 Ensure secure ICMP redirects are not accepted
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.6":
+      name: 10.6 Ensure suspicious packets are logged
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.7":
+      name: 10.7 Ensure broadcast ICMP requests are ignored
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.8":
+      name: 10.8 Ensure bogus ICMP responses are ignored
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.9":
+      name: 10.9 Ensure Reverse Path Filtering is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.10":
+      name: 10.10 Ensure TCP SYN Cookies is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "10.11":
+      name: 10.11 Ensure IPv6 router advertisements are not accepted
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "11.1":
+      name: 11.1 Ensure DCCP is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "11.2":
+      name: 11.2 Ensure SCTP is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "11.3":
+      name: 11.3 Ensure TIPC is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "11.4":
+      name: 11.4 Verify if IPv6 is enabled on the system
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "12.1":
+      name: 12.1 Ensure auditd is installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "12.2":
+      name: 12.2 Ensure auditd service is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "12.3":
+      name: 12.3 Ensure auditing for processes that start prior to auditd is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "12.4":
+      name: 12.4 Ensure audit_backlog_limit is sufficient
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.1":
+      name: 13.1 Ensure audit log storage size is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.2":
+      name: 13.2 Ensure audit logs are rotated
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.3":
+      name: 13.3 Ensure system is disabled when audit logs are full
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.4":
+      name: 13.4 Ensure changes to system administration scope (sudoers) is collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.5":
+      name: 13.5 Ensure login and logout events are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.6":
+      name: 13.6 Ensure session initiation information is collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.7":
+      name: 13.7 Ensure events that modify date and time information are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.8":
+      name: 13.8 Ensure events that modify the system's Mandatory Access Controls are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.9":
+      name: 13.9 Ensure events that modify the system's network environment are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.10":
+      name: 13.10 Ensure discretionary access control permission modification events are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.11":
+      name: 13.11 Ensure unsuccessful file access attempts are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.12":
+      name: 13.12 Ensure events that modify user/group information are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.13":
+      name: 13.13 Ensure successful file system mounts are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.14":
+      name: 13.14 Ensure use of privileged commands is collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.15":
+      name: 13.15 Ensure file deletion events by users are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.16":
+      name: 13.16 Ensure kernel module loading and unloading is collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.17":
+      name: 13.17 Ensure system administrator actions (sudolog) are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.18":
+      name: 13.18 Ensure the audit configuration is immutable
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.19":
+      name: 13.19 Ensure actions as another user are always logged
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.20":
+      name: 13.20 Ensure events that modify the sudo log file are collected
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.21":
+      name: 13.21 Ensure successful and unsuccessful attempts to use the chcon command are recorded
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.22":
+      name: 13.22 Ensure successful and unsuccessful attempts to use the setfacl command are recorded
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.23":
+      name: 13.23 Ensure successful and unsuccessful attempts to use the chacl command are recorded
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "13.24":
+      name: 13.24 Ensure successful and unsuccessful attempts to use the usermod command are recorded
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "14.1":
+      name: 14.1 Ensure rsyslog is installed
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "14.2":
+      name: 14.2 Ensure rsyslog Service is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "14.3":
+      name: 14.3 Ensure rsyslog default file permissions configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "14.4":
+      name: 14.4 Ensure logging is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "14.5":
+      name: 14.5 Ensure rsyslog is configured to send logs to a remote log host
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "15.1":
+      name: 15.1 Ensure journald is configured to send logs to rsyslog
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "15.2":
+      name: 15.2 Ensure journald is configured to compress large log files
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "15.3":
+      name: 15.3 Ensure journald is configured to write logfiles to persistent disk
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: script
+  "15.4":
+      name: 15.4 Ensure logrotate is configured
+      remediation_method: script
+      server_lv: Level 1
+      verification_method: script
+  "16.1":
+      name: 16.1 Ensure cron daemon is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.2":
+      name: 16.2 Ensure permissions on /etc/crontab are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.3":
+      name: 16.3 Ensure permissions on /etc/cron.hourly are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.4":
+      name: 16.4 Ensure permissions on /etc/cron.daily are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.5":
+      name: 16.5 Ensure permissions on /etc/cron.weekly are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.6":
+      name: 16.6 Ensure permissions on /etc/cron.monthly are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.7":
+      name: 16.7 Ensure permissions on /etc/cron.d are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.8":
+      name: 16.8 Ensure at/cron is restricted to authorized users
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "16.9":
+      name: 16.9 Ensure at is restricted to authorized users
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.1":
+      name: 17.1 Ensure permissions on /etc/ssh/sshd_config are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.2":
+      name: 17.2 Ensure SSH access is limited
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.3":
+      name: 17.3 Ensure permissions on SSH private host key files are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.4":
+      name: 17.4 Ensure permissions on SSH public host key files are configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.5":
+      name: 17.5 Ensure SSH LogLevel is set to VERBOSE
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.6":
+      name: 17.6 Ensure SSH X11 forwarding is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.7":
+      name: 17.7 Ensure SSH MaxAuthTries is set to 5
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.8":
+      name: 17.8 Ensure SSH IgnoreRhosts is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.9":
+      name: 17.9 Ensure SSH HostbasedAuthentication is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.10":
+      name: 17.10 Ensure SSH root login is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.11":
+      name: 17.11 Ensure SSH PermitEmptyPasswords is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.12":
+      name: 17.12 Ensure SSH PermitUserEnvironment is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.13":
+      name: 17.13 Ensure SSH Idle Timeout Interval is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.14":
+      name: 17.14 Ensure SSH LoginGraceTime is set to one minute
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.15":
+      name: 17.15 Ensure SSH warning banner is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.16":
+      name: 17.16 Ensure SSH PAM is enabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.17":
+      name: 17.17 Ensure SSH AllowTcpForwarding is disabled
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.18":
+      name: 17.18 Ensure SSH MaxStartups is configured
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+  "17.19":
+      name: 17.19 Ensure SSH MaxSessions is set to 5
+      remediation_method: playbook
+      server_lv: Level 1
+      verification_method: playbook
+
+#  2.1.3:
+#      name: 2.1.3 Ensure sudo log file exists 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  2.1.4: 
+#      name: 2.1.4 Ensure permissions on bootloader config are configured 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.1.5:
+#      name: 2.1.5 Ensure authentication required for single user mode
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.1.6:
+#      name: 2.1.6 Ensure core dumps are restricted
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.1.7:
+#      name: 2.1.7 Ensure XD/NX support is enabled (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.1.8:
+#      name: 2.1.8 Ensure address space layout randomization (ASLR) is enabled 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.1:
+#      name: 2.2.1 Ensure SELinux is installed (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.2:
+#      name: 2.2.2 Ensure SELinux is not disabled in bootloader configuration 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.3:
+#      name: 2.2.3 Ensure local login warning banner is configured properly 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.4:
+#      name: 2.2.4 Ensure remote login warning banner is configured properly (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.5:
+#      name: 2.2.5 Ensure permissions on /etc/motd are configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.6:
+#      name: 2.2.6 Ensure permissions on /etc/issue are configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.7:
+#      name: 2.2.7 Ensure permissions on /etc/issue.net are configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  2.2.8:
+#      name: 2.2.8 Ensure GDM is removed or login is configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#      #  3.1.1:
+#      #      name: 3.1.1 Ensure nonessential services are removed or masked
+#      #      remediation_method: playbook
+#      #      server_lv: Level 1
+#      #      verification_method: script
+#      #  3.1.2:
+#      #      name: 3.1.2 Disable IPv6
+#      #      remediation_method: playbook
+#      #      server_lv: Level 1
+#      #      verification_method: playbook
+#  3.1.4:
+#      name: 3.1.4 Ensure IP forwarding is disabled
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.5:
+#      name: 3.1.5 Ensure packet redirect sending is disabled
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.6:
+#      name: 3.1.6 Ensure source routed packets are not accepted
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.7:
+#      name: 3.1.7 Ensure ICMP redirects are not accepted
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.8:
+#      name: 3.1.8 Ensure secure ICMP redirects are not accepted
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.9:
+#      name: 3.1.9 Ensure suspicious packets are logged
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.10:
+#      name: 3.1.10 Ensure broadcast ICMP requests are ignored
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.11:
+#      name: 3.1.11 Ensure bogus ICMP responses are ignored
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  3.1.12:
+#      name: 3.1.12 Ensure Reverse Path Filtering is enabled
+#      remediation_method: script,playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.1.1:
+#      name: 4.1.1 Ensure auditing for processes that start prior to auditd is enabled 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.2:
+#      name: 4.1.2 Ensure audit log storage size is configured 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.3:
+#      name: 4.1.3 Ensure audit logs are not automatically deleted 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.4:
+#      name: 4.1.4 Ensure audit_backlog_limit is sufficient (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.5:
+#      name: 4.1.5 Ensure events that modify date and time information are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.6:
+#      name: 4.1.6 Ensure events that modify user/group information are collected
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.7:
+#      name: 4.1.7 Ensure events that modify the system's network environment are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.8:
+#      name: 4.1.8 Ensure events that modify the system's Mandatory Access Controls are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.9:
+#      name: 4.1.9 Ensure login and logout events are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.10:
+#      name: 4.1.10 Ensure session initiation information is collected
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.11:
+#      name: 4.1.11 Ensure discretionary access control permission modification events are collected
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.12:
+#      name: 4.1.12 Ensure unsuccessful unauthorized file access attempts are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.13:
+#      name: 4.1.13 Ensure use of privileged commands is collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.14:
+#      name: 4.1.14 Ensure successful file system mounts are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.15:
+#      name: 4.1.15 Ensure file deletion events by users are collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.16:
+#      name: 4.1.16 Ensure changes to system administration scope (sudoers) is collected 
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.17:
+#      name: 4.1.17 Ensure system administrator actions (sudolog) are collected
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.18:
+#      name: 4.1.18 Ensure kernel module loading and unloading is collected
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: script
+#  4.1.19:
+#      name: 4.1.19 Ensure the audit configuration is immutable (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 2
+#      verification_method: playbook
+#  4.2.1:
+#      name: 4.2.1 Ensure rsyslog is installed
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  4.2.2:
+#      name: 4.2.2 Ensure rsyslog Service is enabled and running
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  4.2.3:
+#      name: 4.2.3 Ensure rsyslog default file permissions configured 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.2.4:
+#      name: 4.2.4 Ensure logging is configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.2.5:
+#      name: 4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  4.2.6:
+#      name: 4.2.6 Ensure remote rsyslog messages are only accepted on designated log hosts
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.2.7:
+#      name: 4.2.7 Ensure journald is configured to send logs to rsyslog 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.2.8:
+#      name: 4.2.8 Ensure journald is configured to compress large log files 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  4.2.9:
+#      name: 4.2.3 Ensure permissions on all logfiles are configured (Scored)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#      #  '4.2.10':
+#      #      name: 4.2.10 Ensure logrotate is configured
+#      #      remediation_method: playbook
+#      #      server_lv: Level 1
+#      #      verification_method: script
+#  5.1.1:
+#      name: 5.1.1 Ensure cron daemon is enabled and running
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.2:
+#      name: 5.1.2 Ensure permissions on /etc/crontab are configured 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.3:
+#      name: 5.1.3 Ensure cron is restricted to authorized users
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.4:
+#      name: 5.1.4 Ensure at is restricted to authorized users
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.5:
+#      name: 5.1.5 Ensure permissions on /etc/ssh/sshd_config are configured
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.6:
+#      name: 5.1.6 Ensure permissions on SSH private host key files are configured 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.7:
+#      name: 5.1.7 Ensure permissions on SSH public host key files are configured 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.8:
+#      name: 5.1.8 Ensure SSH LogLevel is appropriate 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.9:
+#      name: 5.1.9 Ensure SSH X11 forwarding is disabled 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  '5.1.10':
+#      name: 5.1.10 Ensure SSH MaxAuthTries is set to 4 or less
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.11:
+#      name: 5.1.11 Ensure SSH IgnoreRhosts is enabled 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.12:
+#      name: 5.1.12 Ensure SSH HostbasedAuthentication is disabled 
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.13:
+#      name: 5.1.13 Ensure SSH root login is disabled
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.14:
+#      name: 5.1.14 Ensure SSH PermitEmptyPasswords is disabled
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.15:
+#      name: 5.1.15 Ensure SSH PermitUserEnvironment is disabled (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.16:
+#      name: 5.1.16 Ensure only strong Ciphers are used (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.17:
+#      name: 5.1.17 Ensure only strong MAC algorithms are used (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.18:
+#      name: 5.1.18 Ensure only strong Key Exchange algorithms are used (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.19:
+#      name: 5.1.19 Ensure SSH Idle Timeout Interval is configured (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  '5.1.20':
+#      name: 5.1.20 Ensure SSH LoginGraceTime is set to one minute or less (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.21:
+#      name: 5.1.21 Ensure SSH warning banner is configured (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.22:
+#      name: 5.1.22 Ensure SSH AllowTcpForwarding is disabled (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.23:
+#      name: 5.1.23 Ensure SSH MaxStartups is configured (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.24:
+#      name: 5.1.24 Ensure password creation requirements are configured (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  5.1.25:
+#      name: 5.1.25 Ensure lockout for failed password attempts is configured (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  5.1.26:
+#      name: 5.1.26 Ensure password hashing algorithm is SHA-512 (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: playbook
+#  6.1.1:
+#      name: 6.1.1 Ensure no world writable files exist (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.2:
+#      name: 6.1.2 Ensure no unowned files or directories exist (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.3:
+#      name: 6.1.3 Ensure no ungrouped files or directories exist (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#      #  6.1.4:
+#      #      name: 6.1.4 Audit SUID executables
+#      #      remediation_method: playbook
+#      #      server_lv: Level 1
+#      #      verification_method: script
+#      #  6.1.5:
+#      #      name: 6.1.5 Audit SGID executables
+#      #      remediation_method: playbook
+#      #      server_lv: Level 1
+#      #      verification_method: script
+#  6.1.6:
+#      name: 6.1.6 Ensure /etc/shadow password fields are not empty (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.7:
+#      name: 6.1.7 Ensure root and rootbkup are the only UID 0 account
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.8:
+#      name: 6.1.8 Ensure root PATH Integrity (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.9:
+#      name: 6.1.9 Ensure all users' home directories exist (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: 
+#  '6.1.10':
+#      name: 6.1.10 Ensure no users have .forward files (Automated)
+#      remediation_method: script
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.11:
+#      name: 6.1.11 Ensure no users have .netrc files (Automated)
+#      remediation_method: script
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.13:
+#      name: 6.1.13 Ensure no users have .rhosts files (Automated)
+#      remediation_method: script
+#      server_lv: Level 1
+#      verification_method: script
+#  6.1.14:
+#      name: 6.1.14 Ensure all groups in /etc/passwd exist in /etc/group (Automated)
+#      remediation_method: playbook
+#      server_lv: Level 1
+#      verification_method: script

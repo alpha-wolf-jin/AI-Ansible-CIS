@@ -1,0 +1,79 @@
+---
+- name: CIS Correction
+  hosts: rhel
+  become: true
+
+  vars:
+    os: rhel8
+    selector:
+      - '5'
+
+    cis_action: remediation
+    cis_action: verification
+
+    all_results: {}
+    all_result_readable: {}
+
+  tasks:
+    - name: Predict CIS Item
+      jin.ai.cis:
+        model: 'finalized_model.sav'
+        features: 'read-06.csv'
+        csv_report: 'scan_report.csv'
+      delegate_to: 127.0.0.1
+      register: result
+
+    - name: the related CIS policies
+      debug:
+        msg: "CIS policies: {{ result['result']['cis'] }}"
+
+    - pause:
+        prompt: "AI figures out the related CIS policies."
+
+    - name: show the CIS Item
+      set_fact: 
+        selector: "{{ result['result']['cis'] }}"
+        cis_action: verification
+
+    - name: include cis role
+      ansible.builtin.include_role:
+        name: cis
+      loop: "{{ selector }}"
+      loop_control:
+        loop_var: selection
+
+    - name: Show Scan Result
+      debug: var=all_result_readable
+      when: cis_action == 'verification'
+
+    - pause:
+        prompt: "Playook verifies the current status of the related CIS policies"
+
+    - name: show the CIS Item
+      set_fact: 
+        cis_action: remediation
+
+    - name: include cis role
+      ansible.builtin.include_role:
+        name: cis
+      loop: "{{ selector }}"
+      loop_control:
+        loop_var: selection
+
+    - pause:
+        prompt: "Made the remediations for the related CIS policies"
+
+    - name: show the CIS Item
+      set_fact: 
+        cis_action: verification
+
+    - name: include cis role
+      ansible.builtin.include_role:
+        name: cis
+      loop: "{{ selector }}"
+      loop_control:
+        loop_var: selection
+
+    - name: Show Scan Result
+      debug: var=all_result_readable
+      when: cis_action == 'verification'

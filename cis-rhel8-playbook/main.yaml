@@ -1,0 +1,39 @@
+---
+- name: CIS 
+  hosts: rhel
+  connection: ssh
+  become: yes
+  gather_facts: yes
+
+  vars:
+    os: rhel8
+    selector: 
+      - '1'
+      - '5'
+
+
+
+    
+    cis_action: remediation
+    cis_action: verification
+
+    all_results: {}
+    all_result_readable: {}
+
+  tasks:
+
+  - debug: var=selector
+
+  # execute the CIS tasks
+  - name: include cis role
+    ansible.builtin.include_role: 
+      name: cis
+    loop: "{{ selector }}"
+    loop_control:
+      loop_var: selection
+
+  - name: Show Scan Result
+    debug: var=all_result_readable
+    when: cis_action == 'verification'
+
+

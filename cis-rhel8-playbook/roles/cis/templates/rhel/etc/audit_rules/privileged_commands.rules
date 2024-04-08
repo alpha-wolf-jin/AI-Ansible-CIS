@@ -1,0 +1,3 @@
+{% for binary in priv_binaries.stdout_lines %}
+-a always,exit -F path={{ binary }} -F perm=x -F auid>={{ cis_rhel_min_uid }} -F auid!=4294967295 -k privileged
+{% endfor %}

@@ -1,0 +1,203 @@
+---
+# defaults file for cis-win2019
+
+gdm_banner_message:  gdm_banner_ "message"
+
+
+# 1.1.2
+cis_win2019_pwd_history: 24
+cis_win2019_MaximumPasswordAge: 60
+cis_win2019_MinimumPasswordAge: 1
+cis_win2019_MinimumPasswordLength: 8
+cis_win2019_PasswordComplexity: 0
+cis_win2019_ClearTextPassword: 0
+cis_win2019_LockoutDuration: 15
+cis_win2019_LockoutBadCount: 10
+cis_win2019_ResetLockoutCount: 15
+cis_win2019_SeTrustedCredManAccessPrivilege: 
+- users: []
+cis_win2019_SeTcbPrivilege: 
+- users: []
+cis_win2019_SeIncreaseQuotaPrivilege:
+- users: ['Administrators','Local Service','Network Service']
+cis_win2019_SeInteractiveLogonRight:
+- users: ['Administrators']
+cis_win2019_SeBackupPrivilege:
+- users: ['Administrators']
+cis_win2019_SeSystemTimePrivilege:
+- users: ['Administrators','Local Service']
+cis_win2019_SeTimeZonePrivilege: 
+- users: ['Administrators','Local Service']
+cis_win2019_SeCreatePagefilePrivilege:
+- users: ['Administrators']
+cis_win2019_SeCreateTokenPrivilege:
+- users: []
+cis_win2019_SeCreateGlobalPrivilege:
+- users: ['Administrators','Local Service','Network Service','Service']
+cis_win2019_SeCreatePermanentPrivilege:
+- users: []
+cis_win2019_SeCreateSymbolicLinkPrivilege:
+- users:
+  - 'Administrators'
+  - "{{ 'NT VIRTUAL MACHINE\\Virtual Machines' if hyperv_host|default(false) else 'Administrators' }}"
+cis_win2019_SeDebugPrivilege:
+- users: ['Administrators']
+cis_win2019_SeDenyServiceLogonRight:
+- users: ['Guests']
+cis_win2019_SeDenyInteractiveLogonRight:
+- users: ['Guests']
+cis_win2019_SeEnableDelegationPrivilege:
+- users: []
+cis_win2019_SeRemoteShutdownPrivilege:
+- users: ['Administrators']
+cis_win2019_SeIncreaseBasePriorityPrivilege:
+- users: ['Administrators']
+cis_win2019_SeLoadDriverPrivilege:
+- users: ['Administrators']
+cis_win2019_SeLockMemoryPrivilege:
+- users: []
+cis_win2019_SeSecurityPrivilege:
+- users: ['Administrators']
+cis_win2019_SeReLabelPrivilege:
+- users: []
+cis_win2019_SeSystemEnvironmentPrivilege:
+- users: ['Administrators']
+cis_win2019_SeManageVolumePrivilege:
+- users: ['Administrators']
+cis_win2019_SeProfileSingleProcessPrivilege:
+- users: ['Administrators']
+cis_win2019_SeSystemProfilePrivilege:
+- users: ['Administrators','NT SERVICE\WdiServiceHost']
+cis_win2019_SeAssignPrimaryTokenPrivilege:
+- users: ['LOCAL SERVICE','NETWORK SERVICE']
+cis_win2019_SeTakeOwnershipPrivilege:
+- users: ['Administrators']
+cis_win2019_NoConnectedUser:
+  data: 3
+cis_win2019_EnableGuestAccount: 0
+cis_win2019_LimitBlankPasswordUse:
+  data: 1
+cis_win2019_SCENoApplyLegacyAuditPolicy:
+  data: 1
+cis_win2019_CrashOnAuditFail:
+  data: 0
+cis_win2019_AllocateDASD:
+  data: 0
+cis_win2019_AddPrinterDrivers:
+  data: 1
+cis_win2019_RequireSignOrSeal:
+  data: 1
+cis_win2019_sealsecurechannel:
+  data: 1
+cis_win2019_signsecurechannel:
+  data: 1
+cis_win2019_disablepasswordchange:
+  data: 1
+cis_win2019_2_MaximumPasswordAge:
+  data: 30
+cis_win2019_RequireStrongKey:
+  data: 1
+cis_win2019_DisableCAD:
+  data: 0
+cis_win2019_DontDisplayLastUserName:
+  data: 1
+cis_win2019_InactivityTimeoutSecs:
+  data: 900
+cis_win2019_LegalNoticeText:
+  data: 'Unauthorized access to this system will be prosecuted'
+cis_win2019_LegalNoticeCaption:
+  data: 'DoD Notice and Consent Banner'
+cis_win2019_cachedlogonscount:
+  data: 3
+cis_win2019_PasswordExpiryWarning:
+  data: 14
+cis_win2019_ForceUnlockLogon:
+  data: 1
+cis_win2019_scremoveoption:
+  data: 1
+cis_win2019_EnableSecuritySignature:
+  data: 1
+cis_win2019_EnablePlainTextPassword:
+  data: 0
+cis_win2019_autodisconnect:
+  data: 15
+cis_win2019_enableforcedlogoff:
+  data: 1
+cis_win2019_LSAAnonymousNameLookup: 0
+cis_win2019_RestrictAnonymousSAM:
+  data: 1
+cis_win2019_EveryoneIncludesAnonymous:
+  data: 0
+cis_win2019_Machine:
+  data: ['System\CurrentControlSet\Control\ProductOptions', 'System\CurrentControlSet\Control\Server Applications', 'Software\Microsoft\Windows NT\CurrentVersion']
+cis_win2019_2_3_10_10:
+  data: 1
+cis_win2019_2_3_10_11:
+  data: 'O:BAG:BAD:(A;;RC;;;BA)'
+
+cis_win2019_2_3_10_12:
+  data: []
+
+cis_win2019_2_3_10_13:
+  data: 0
+
+cis_win2019_2_3_11_1:
+  data: 1
+
+cis_win2019_2_3_11_2:
+  data: 0
+
+cis_win2019_2_3_11_3:
+  data: 0
+
+cis_win2019_2_3_11_4:
+  data: 2147483644
+
+cis_win2019_2_3_11_5:
+  data: 1
+
+cis_win2019_2_3_11_6:
+  data: 1
+
+cis_win2019_2_3_11_7:
+  data: 5
+
+cis_win2019_2_3_11_8:
+  data: 1
+
+cis_win2019_2_3_11_9:
+  data: 537395200
+
+cis_win2019_2_3_11_10:
+  data: 537395200
+
+cis_win2019_2_3_13_1:
+  data: 0
+
+cis_win2019_2_3_15_1:
+  data: 1
+
+cis_win2019_2_3_15_2:
+  data: 1
+
+cis_win2019_2_3_17_1:
+  data: 1
+
+cis_win2019_2_3_17_2:
+  data: 0
+
+cis_win2019_2_3_17_4:
+  data: 1
+
+cis_win2019_2_3_17_5:
+  data: 1
+
+cis_win2019_2_3_17_6:
+  data: 1
+
+cis_win2019_2_3_17_7:
+  data: 1
+
+cis_win2019_2_3_17_8:
+  data: 1
+

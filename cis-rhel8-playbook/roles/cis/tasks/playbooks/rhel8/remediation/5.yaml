@@ -1,0 +1,31 @@
+---
+
+- name: "{{ cis_rules[cis_item]['name'] }} Ensure permissions on all logfiles are configured (Scored)"
+  block:
+  - name: "{{ cis_rules[cis_item]['name'] }} Ensure permissions on all logfiles are configured (Scored) - find files"
+    command: find /var/log -type f -perm /037
+    register: logfile_wrong_permissions
+    failed_when: false
+    changed_when: false
+
+  - name: "{{ cis_rules[cis_item]['name'] }} Ensure permissions on all logfiles are configured (Scored) - find directories"
+    command: find /var/log -type d -perm /026
+    register: logdir_wrong_permissions
+    failed_when: false
+    changed_when: false
+
+  - name: "{{ cis_rules[cis_item]['name'] }} Ensure permissions on all logfiles are configured (Scored) - fix files permissions"
+    file:
+      dest: "{{ item }}"
+      mode: 0640
+    with_items: "{{ logfile_wrong_permissions.stdout_lines }}"
+    when: logfile_wrong_permissions.stdout_lines | length > 0
+
+  - name: "{{ cis_rules[cis_item]['name'] }} Ensure permissions on all logfiles are configured (Scored) - fix directories permissions"
+    file:
+      dest: "{{ item }}"
+      state: directory
+      mode: 0750
+    with_items: "{{ logdir_wrong_permissions.stdout_lines }}"
+    when: logdir_wrong_permissions.stdout_lines | length > 0
+

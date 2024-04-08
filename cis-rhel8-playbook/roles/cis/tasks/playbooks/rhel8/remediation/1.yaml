@@ -1,0 +1,4 @@
+- name: "{{ cis_rules[cis_item]['name'] }}"
+  shell:
+    subscription-manager register --username jinzha1@redhat.com --password WaiMing@1969 --auto-attach
+  no_log: yes

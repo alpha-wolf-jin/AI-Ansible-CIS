@@ -1,0 +1,51 @@
+---
+
+- name: Ensure the item "{{ cis_item }}" valid
+  ansible.builtin.assert:
+    that:
+      - cis_item|string in cis_rules.keys()|list
+    fail_msg: "{{ cis_item }} is not valid."
+    success_msg: "{{ cis_item }} is valid."
+
+- name: Script full path
+  ansible.builtin.set_fact:
+    execution_path: "{{ os }}/{{ cis_action }}/{{ cis_item|string | replace('.', '-') }}"
+    method: "{{ cis_action }}_method"
+
+# execute shell script
+- name: Execute {{ cis_action }}
+  when: cis_rules[cis_item|string][method] == 'script'
+  block:
+    - name: Trigger {{ cis_action }} shell script for "{{ cis_rules[cis_item|string]['name'] }}"
+      ansible.builtin.include_tasks: execute_shell.yaml
+
+# execute playbook
+- name: Execute anisble playbook "{{ execution_path }}.yaml"
+  when: cis_rules[cis_item|string][method] == 'playbook'
+  block:
+    - name: Run {{ cis_action }} playbook for "{{ cis_rules[cis_item|string]['name'] }}"
+      ansible.builtin.include_tasks: "./playbooks/{{ execution_path }}.yaml"
+
+- name: Execute {{ cis_action }}
+  ansible.builtin.include_tasks: mixed-actions.yaml
+  loop: "{{ cis_rules[cis_item|string]['remediation_method'].split(',') | list }}"
+  loop_control:
+    loop_var: exec_method
+  when:
+    - "',' in  cis_rules[cis_item|string]['remediation_method']"
+    - cis_action == 'remediation'
+
+# update result for reporting purpose
+- name: Update CIS result for {{ cis_item }}
+  ansible.builtin.set_fact:
+    all_results: "{{ all_results | combine({cis_item|string: cis_result}) }}"
+    all_result_readable : "{{ all_result_readable | combine({cis_rules[cis_item]['name']: cis_result}) }}"
+  when: cis_action == 'verification'
+
+#- debug: var=all_results
+#- debug: var=all_result_readable
+
+- name: Update CIS result for {{ cis_item }}
+  ansible.builtin.set_fact:
+    all_result_readable: "{{ all_result_readable | combine({cis_rules[cis_item|string]['name']: cis_result}) }}"
+  when: cis_action == 'verification|string'

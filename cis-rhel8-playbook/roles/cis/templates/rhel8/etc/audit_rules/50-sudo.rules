@@ -1,0 +1,2 @@
+-D
+-w {{ sudo_log }} -p wa -k sudo_log_file

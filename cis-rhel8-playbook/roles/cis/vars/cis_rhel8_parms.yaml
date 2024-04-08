@@ -1,0 +1,161 @@
+---
+
+rhel8cis_rule_1_4: true
+rhel8cis_rule_1_5: true
+rhel8cis_rule_1_6: true
+rhel8cis_rule_1_9: true
+rhel8cis_rule_1_10: true
+rhel8cis_rule_1_11: true
+rhel8cis_rule_1_15: true
+rhel8cis_rule_1_23: true
+rhel8cis_rule_1_24: true
+rhel8cis_rule_1_25: true
+rhel8cis_rule_3_6_threshold: 15
+rhel8cis_rule_3_6: 10
+
+cis_rhel8_aide_cron:
+  weekday: "*"
+  minute: 0
+  hour: 3
+  user: root
+  job: /usr/sbin/aide --check
+  cron_file: /var/spool/cron/root
+
+cis_rhel_sudoers_file: cis
+
+cis_rhel8_selinux_policy: targeted
+
+cis_rhel8_selinux_state: enforcing
+
+cis_rhel8_warning_banner: |
+  ***************** UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED ****************
+  WARNING TO UNAUTHORIZED USERS:
+  This system is for the use by authorized users only. Any individual using
+  this system, by such use, acknowledges and consents to the right of the
+  organization to monitor, access, use, and disclose any information generated,
+  received, or stored on the system, and waives any right of privacy or
+  expectation of privacy on the part of that individual in connection with his
+  or her use of this system.
+  Unauthorized and/or inadequate use of this system, as delineated by corporate
+  policies, is not tolerated and the organization may take formal actions
+  against individuals.
+  DISCONNET IMMEDIATELY IF YOU ARE NOT AN AUTHORZIED USER!
+  *****************************************************************************
+
+cis_rhel8_chrony_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+
+cis_rhel8_audit_backlog_limit: 8192
+
+cis_rhel8_audit_max_log_file: 6
+
+cis_rhel8_uid_min: 500
+
+cis_rhel8_sudo_log: /var/log/sudo.log
+
+cis_rhel8_rsyslog_file_mode: "0640"
+
+cis_rhel8_rsyslog_server: "loghost.example.com"
+
+cis_rhel8_cron_allow_users: []
+
+cis_rhel8_at_allow_users: []
+
+cis_rhel8_sshd:
+  allowusers:
+  allowgroups:
+  denyusers:
+  denygroups:
+
+cis_rhel8_sshd_log_level: INFO
+
+cis_rhel8_sshd_max_auth_tries: 4
+
+cis_rhel8_sshd_client_alive_interval: 300
+cis_rhel8_sshd_client_alive_count_max: 0
+
+cis_rhel8_sshd_login_grace_time: 60
+cis_rhel8_sshd_max_startups: "10:30:60"
+
+cis_rhel8_sshd_max_sessions: 4
+
+cis_rhel8_pwquality:
+  minlen: 4
+  dcredit: -1
+  ucredit: -1
+  ocredit: -1
+  lcredit: -1
+  #minclass: 4
+
+cis_rhel8_pam_failllock_timeout: 1200
+
+cis_rhel8_authselect_profile: cis-profile
+
+cis_rhel8_password_reuse: 5
+
+# defaults file for cis-rhel7
+
+gdm_banner_message:  gdm_banner_ "message"
+
+#1.1.12
+var_tmp_mount_opt: default,noexec,nodev
+
+#2.2.3
+cis_rhel_warning_banner: |
+  ------------------------------------------------------------------------------
+  * WARNING                                                                    *
+  * You are accessing a secured system and your actions will be logged along   *
+  * with identifying information. Disconnect immediately if you are not an     *
+  * authorized user of this system.                                            *
+  ------------------------------------------------------------------------------
+
+ipv6_disable: 1
+
+section04_parms:
+  uid_min: 1000
+  audit_backlog_limit: 320
+  max_log_file: 8
+  max_log_file_action: keep_logs
+  space_left_action: email
+  action_mail_acct: root
+  admin_space_left_action: halt
+
+# 4.1.2
+cis_rhel_audit_backlog_limit: 320
+cis_rhel_audit_max_log_file: 8
+# 4.2.3
+# 4.2.5
+cis_rhel_rsyslog_server: "loghost.example.com"
+# 4.2.6
+cis_rhel_rsyslog_port: 514
+
+
+# 5.1.8
+cis_rhel_sshd_log_level: INFO
+# 5.1.10
+cis_rhel_sshd_max_auth_tries: 4
+# 5.1.19
+cis_rhel_sshd_client_alive_interval: 300
+cis_rhel_sshd_client_alive_count_max: 0
+# 5.1.20
+cis_rhel_sshd_login_grace_time: 60
+# 5.1.23
+cis_rhel_sshd_max_startups: "10:30:60"
+# 5.1.24
+cis_rhel_pwquality:
+  minlen:  14
+  dcredit: -1
+  ucredit: -1
+  ocredit: -1
+  lcredit: -1
+  #minclass: 4
+# 5.1.25
+cis_rhel_pam_failllock_deny: 5
+cis_rhel_pam_failllock_timeout: 900
+
+# 6.1.2
+cis_rhel_user_unowned_file: nobody
+# 6.1.3
+cis_rhel_group_ungrouped_file: nobody
+

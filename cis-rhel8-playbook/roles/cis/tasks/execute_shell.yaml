@@ -1,0 +1,46 @@
+---
+
+# set the task result as failed
+- name: Init cis_result value as false
+  ansible.builtin.set_fact:
+    cis_result: false
+
+# create work diretory on the managed server
+- name: Create temporary file
+  ansible.builtin.tempfile:
+    path: /usr/local
+    state: file
+    suffix: temp
+  register: tempfile_1
+
+# create the shell script under work diretory on the managed server
+- name: Create script
+  ansible.builtin.template:
+    src: "./scripts/{{  execution_path }}.j2"
+    dest: "{{ tempfile_1.path }}"
+    mode: "0755"
+
+# run the shell script on the managed server
+- name: Run verification script for "{{ cis_rules[cis_item]['name'] }}"
+  ansible.builtin.shell: "{{ tempfile_1.path }}"
+  become: true
+  changed_when: false
+  failed_when: false
+  register: script_result
+
+# set task result as successful when return code is zero
+- name: Set result
+  ansible.builtin.set_fact:
+    cis_result: true
+  when: script_result['rc'] == 0
+
+# delete work diretory on the managed server
+- name: Delete temparory file
+  ansible.builtin.file:
+    path: "{{ tempfile_1.path }}"
+    state: absent
+
+- name: Failed - "{{ cis_rules[cis_item]['name'] }}"
+  debug: 
+    msg: "{{ script_result.stdout_lines }}"
+  when: script_result['rc'] != 0

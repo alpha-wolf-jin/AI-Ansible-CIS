@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+subscription-manager identity  \
+|| \
+(subscription-manager identity ; exit 1)
+
+

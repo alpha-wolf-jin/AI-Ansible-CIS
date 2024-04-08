@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+[ `find /var/log -type f -perm /037 -ls -o -type d -perm /026 -ls | wc -l` == 0 ] \
+|| \
+(echo "permissions on all logfile is not right" ; exit 1)

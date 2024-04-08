@@ -1,0 +1,15 @@
+---
+
+# execute shell script
+- name: Execute {{ cis_action }}
+  when: exec_method == 'script'
+  block:
+    - name: Trigger {{ cis_action }} shell script for "{{ cis_rules[cis_item]['name'] }}"
+      ansible.builtin.include_tasks: execute_shell.yaml
+
+# execute playbook
+- name: Execute anisble playbook "{{ execution_path }}.yaml"
+  when: exec_method == 'playbook'
+  block:
+    - name: Run {{ cis_action }} playbook for "{{ cis_rules[cis_item]['name'] }}"
+      ansible.builtin.include_tasks: "./playbooks/{{ execution_path }}.yaml"

@@ -1,0 +1,22 @@
+---
+
+#- debug:  
+#    msg: "{{ cis_item }}"
+
+- name: extract value from input date
+  set_fact:
+    rule: "{{ cis_item['descrip'].split()[0] | string }}"
+    name: "{{ cis_item['descrip'] }}"
+    #name: "{{ cis_item['descrip'].split()[1:] | join(' ') }}"
+    server_lv: 'Level 1'
+    w_lv: 'Level 1'
+
+- name: form the dict from extract value
+  set_fact:
+    dicts: "{{ dicts|default({}) | combine({ rule: { 'name': name, 'server_lv': 'Level 1', 'verification_method': cis_item['verification_method'], 'remediation_method': cis_item['mediation_method'] } }) }}"
+    #dicts: "{{ dicts|default({}) | combine({ rule: { 'name': name, 'rule': rule, 'server_lv': 'Level 1', 'wserver_lv': 'Level 1' } }) }}"
+
+    #- debug: 
+    #    msg: "{{ cis_dict }}"
+
+    #- fail:

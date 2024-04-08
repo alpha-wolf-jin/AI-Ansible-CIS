@@ -1,0 +1,3 @@
+-w /etc/sudoers -p wa -k scope
+-w /etc/sudoers.d/ -p wa -k scope
+-w {{ cis_rhel7_sudo_logfile }} -p wa -k actions
